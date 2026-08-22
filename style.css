@@ -1,0 +1,593 @@
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+body {
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd6e7,
+            #ffeaf3,
+            #ffc9dc
+        );
+
+}
+
+
+/* =========================
+   หน้าเว็บ
+========================= */
+
+.page {
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+}
+
+
+.page.active {
+
+    display: flex;
+
+    animation:
+        fadeIn 0.8s ease;
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   Card
+========================= */
+
+.card {
+
+    width: 420px;
+
+    padding:
+        55px 30px;
+
+    text-align: center;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.85
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
+
+}
+
+
+.card h1 {
+
+    color:
+        #e63971;
+
+    font-size:
+        42px;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.card h2 {
+
+    color:
+        #555;
+
+    margin-bottom:
+        30px;
+
+}
+
+
+.card p {
+
+    color:
+        #666;
+
+    font-size:
+        18px;
+
+    margin-bottom:
+        30px;
+
+}
+
+
+/* =========================
+   รูปในหัวใจ
+========================= */
+
+.heart {
+
+    width:
+        130px;
+
+    height:
+        130px;
+
+    margin:
+        0 auto 20px;
+
+    border-radius:
+        50%;
+
+    overflow:
+        hidden;
+
+    animation:
+        heartbeat 1.2s infinite;
+
+}
+
+
+.heart img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.15);
+
+    }
+
+}
+
+
+/* =========================
+   ปุ่ม OPEN
+========================= */
+
+.openBtn {
+
+    border:
+        none;
+
+    padding:
+        15px 55px;
+
+    border-radius:
+        50px;
+
+    background:
+        #ff4f87;
+
+    color:
+        white;
+
+    font-size:
+        20px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.3s;
+
+}
+
+
+.openBtn:hover {
+
+    transform:
+        scale(1.1);
+
+    background:
+        #e63971;
+
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.videoContainer {
+
+    width:
+        100vw;
+
+    height:
+        100vh;
+
+    background:
+        black;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+}
+
+
+.videoContainer video {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+
+}
+
+
+/* =========================
+   YES / NO
+========================= */
+
+.buttons {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        20px;
+
+}
+
+
+.yesBtn,
+.noBtn,
+.backBtn {
+
+    border:
+        none;
+
+    padding:
+        14px 35px;
+
+    border-radius:
+        50px;
+
+    font-size:
+        18px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.25s;
+
+}
+
+
+.yesBtn {
+
+    background:
+        #ff4f87;
+
+    color:
+        white;
+
+}
+
+
+.noBtn {
+
+    background:
+        #eeeeee;
+
+    color:
+        #555;
+
+}
+
+
+.backBtn {
+
+    background:
+        #ff4f87;
+
+    color:
+        white;
+
+}
+
+
+.yesBtn:hover,
+.noBtn:hover,
+.backBtn:hover {
+
+    transform:
+        scale(1.1);
+
+}
+
+
+/* =========================
+   รูปคำตอบ YES / NO
+========================= */
+
+.resultCard {
+
+    width:
+        min(
+            600px,
+            90vw
+        );
+
+    max-height:
+        90vh;
+
+    padding:
+        20px;
+
+    text-align:
+        center;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        );
+
+    border-radius:
+        30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
+
+    animation:
+        fadeIn 0.8s ease;
+
+}
+
+
+.resultCard img {
+
+    width:
+        100%;
+
+    max-height:
+        75vh;
+
+    object-fit:
+        contain;
+
+    display:
+        block;
+
+    margin:
+        auto;
+
+    border-radius:
+        20px;
+
+}
+
+
+/* =========================
+   หน้าสุดท้าย
+========================= */
+
+.finalCard {
+
+    width:
+        600px;
+
+    padding:
+        70px 30px;
+
+    text-align:
+        center;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        );
+
+    border-radius:
+        35px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
+
+}
+
+
+.bigHeart {
+
+    font-size:
+        120px;
+
+    animation:
+        heartbeat 1s infinite;
+
+}
+
+
+.finalCard h1 {
+
+    margin-top:
+        20px;
+
+    font-size:
+        50px;
+
+    color:
+        #e63971;
+
+}
+
+
+/* =========================
+   มือถือ
+========================= */
+
+@media (max-width: 600px) {
+
+    .card {
+
+        width:
+            90%;
+
+    }
+
+
+    .heart {
+
+        width:
+            110px;
+
+        height:
+            110px;
+
+    }
+
+
+    .finalCard {
+
+        width:
+            90%;
+
+    }
+
+
+    .finalCard h1 {
+
+        font-size:
+            35px;
+
+    }
+
+
+    .resultCard {
+
+        width:
+            92%;
+
+        padding:
+            10px;
+
+    }
+
+
+    .resultCard img {
+
+        max-height:
+            75vh;
+
+    }
+
+}

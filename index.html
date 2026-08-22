@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>For My little Doggg</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         หน้าแรก
+    ========================== -->
+
+    <section id="openPage" class="page active">
+
+        <div class="card">
+
+            <div class="heart">
+                <img src="image/heart.jpg">
+            </div>
+
+            <h1>Dear Doggg</h1>
+
+            <p>
+                do u want to know that?????
+            </p>
+
+            <button
+                class="openBtn"
+                onclick="startVideo()"
+            >
+                OPEN
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         หน้าวิดีโอ
+    ========================== -->
+
+    <section id="videoPage" class="page">
+
+        <div class="videoContainer">
+
+            <video
+                id="loveVideo"
+                playsinline
+            >
+
+                <source
+                    src="video/love.mp4"
+                    type="video/mp4"
+                >
+
+                เบราว์เซอร์ของคุณไม่รองรับวิดีโอ
+
+            </video>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         หลังวิดีโอจบ
+    ========================== -->
+
+    <section id="questionPage" class="page">
+
+        <div class="card">
+
+            <div class="heart">
+                <img src="image/lover.jpg">
+            </div>
+
+            <h1>
+                ถามไรหน่อยได้มั้ยยย
+            </h1>
+
+            <h2>
+                พร้อมรู้รึป่าววว
+            </h2>
+
+
+            <div class="buttons">
+
+                <button
+                    class="yesBtn"
+                    onclick="yes()"
+                >
+                    YES
+                </button>
+
+
+                <button
+                    class="noBtn"
+                    onclick="no()"
+                >
+                    NO
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         หน้า Are u sure?
+    ========================== -->
+
+    <section id="surePage" class="page">
+
+        <div class="card">
+
+            <div class="heart">
+                <img src="image/sure.jpg">
+            </div>
+
+            <h1>
+                Are u sure?
+            </h1>
+
+            <p>
+                จริงดิ่ ตั้งใจเขียนโค้ดมากนะหมาา
+            </p>
+
+
+            <button
+                class="backBtn"
+                onclick="back()"
+            >
+                BACK
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         หน้า เป็นแฟนกันไหม?
+    ========================== -->
+
+    <section id="proposalPage" class="page">
+
+        <div class="card">
+
+            <div class="heart">
+                
+            </div>
+
+            <h1>
+                Pen Fan Gun Mai?????
+            </h1>
+
+            <p>
+                👉👈
+            </p>
+
+
+            <div class="buttons">
+
+                <button
+                    class="yesBtn"
+                    onclick="answerYes()"
+                >
+                    YES
+                </button>
+
+
+                <button
+                    class="noBtn"
+                    onclick="answerNo()"
+                >
+                    NO
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         รูปเมื่อกด YES
+    ========================== -->
+
+    <section id="answerYesPage" class="page">
+
+        <div class="resultCard">
+
+            <img
+                src="image/yes.jpg"
+            >
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         รูปเมื่อกด NO
+    ========================== -->
+
+    <section id="answerNoPage" class="page">
+
+        <div class="resultCard">
+
+            <img
+                src="image/no.jpg"
+            >
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
