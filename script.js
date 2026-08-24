@@ -136,3 +136,9 @@ function answerNo() {
     showPage("answerNoPage");
 
 }
+
+function backToProposal() {
+
+    showPage("proposalPage");
+
+}
