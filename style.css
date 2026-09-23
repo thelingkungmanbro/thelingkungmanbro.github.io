@@ -1,77 +1,852 @@
-* {
+/* =====================================
+   BASIC
+===================================== */
 
+* {
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
+}
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 
+body {
+    background: #050308;
+    font-family: Arial, sans-serif;
 }
 
 
-body {
+/* =====================================
+   PAGE
+===================================== */
+
+.page {
+    position: fixed;
+
+    inset: 0;
 
     width: 100%;
-    height: 100vh;
+    height: 100%;
+
+    display: none;
 
     overflow: hidden;
+}
+
+.page.active {
+    display: flex;
+}
+
+
+/* =====================================
+   MUSIC BUTTON
+===================================== */
+
+.music-button {
+
+    position: fixed;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 9999;
+
+    padding: 8px 13px;
+
+    border: 1px solid #ff72c4;
+
+    border-radius: 20px;
+
+    background: rgba(20, 5, 30, 0.72);
+
+    color: #ff9bd6;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 8px rgba(255, 80, 180, 0.45),
+        inset 0 0 8px rgba(255, 80, 180, 0.08);
+
+    backdrop-filter: blur(5px);
+
+    transition: 0.25s;
+}
+
+.music-button:hover {
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 15px #ff55b5,
+        0 0 30px rgba(255, 40, 160, 0.4);
+}
+
+.music-button.playing {
+
+    color: #ffd2ed;
+
+    border-color: #ffb6df;
+
+    box-shadow:
+        0 0 12px #ff65bc,
+        0 0 25px #ff229d;
+}
+
+
+/* =====================================
+   STAR FIELD
+===================================== */
+
+.star-field {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.star {
+
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #ffb9df;
+
+    box-shadow:
+        0 0 5px #ffb9df,
+        0 0 12px #ff65bd,
+        0 0 22px #ff269f;
+
+    animation-name:
+        moveStar,
+        twinkleStar;
+
+    animation-timing-function:
+        ease-in-out,
+        ease-in-out;
+
+    animation-iteration-count:
+        infinite,
+        infinite;
+}
+
+.star.big {
+
+    width: 5px;
+    height: 5px;
+}
+
+.star.cross {
+
+    width: 2px;
+    height: 12px;
+
+    border-radius: 0;
+}
+
+.star.cross::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: -5px;
+    top: 5px;
+
+    width: 12px;
+    height: 2px;
+
+    background: #ffb9df;
+
+    box-shadow:
+        0 0 8px #ff55b5;
+}
+
+
+/* =====================================
+   STAR ANIMATION
+===================================== */
+
+@keyframes moveStar {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(25px, -20px);
+    }
+
+    50% {
+        transform: translate(-20px, -45px);
+    }
+
+    75% {
+        transform: translate(-35px, -10px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+
+@keyframes twinkleStar {
+
+    0%,
+    100% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =====================================
+   INTRO
+===================================== */
+
+#intro {
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #2c1237 0%,
+            #17091f 35%,
+            #09040d 70%,
+            #030207 100%
+        );
+}
+
+.intro-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* =====================================
+   DIGITAL FONT
+===================================== */
+
+.digital-text {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 170px;
+
+    padding: 20px;
+
+    color: #ff91d1;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(70px, 14vw, 150px);
+
+    font-weight: 900;
+
+    letter-spacing: 8px;
+
+    line-height: 1;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 3px #ffd9ee,
+        0 0 8px #ff9dd5,
+        0 0 18px #ff5bb7,
+        0 0 35px #ff239f,
+        0 0 65px #df007c;
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+
+/* =====================================
+   HEART
+===================================== */
+
+.big-heart {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.7);
+
+    color: #ff94d4;
+
+    font-family: Arial, sans-serif;
+
+    font-size:
+        clamp(120px, 22vw, 210px);
+
+    opacity: 0;
+
+    text-shadow:
+        0 0 5px #ffd5eb,
+        0 0 15px #ff9bd5,
+        0 0 30px #ff5db8,
+        0 0 65px #ff249f,
+        0 0 100px #e90082;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    animation:
+        heartGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes heartGlow {
+
+    0%,
+    100% {
+        filter: brightness(0.9);
+    }
+
+    50% {
+        filter: brightness(1.35);
+    }
+}
+
+
+/* =====================================
+   COVER PAGE
+===================================== */
+
+#coverPage {
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #32153e,
+            #120819 55%,
+            #040207 100%
+        );
+}
+
+.cover-container {
+
+    position: relative;
+
+    z-index: 20;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+/* =====================================
+   CLOSED BOOK
+===================================== */
+
+.closed-book {
+
+    width: min(340px, 70vw);
+
+    height: min(440px, 58vh);
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px 20px 20px 12px;
 
     background:
         linear-gradient(
             135deg,
-            #ffd6e7,
-            #ffeaf3,
-            #ffc9dc
+            #ffb4d8,
+            #d96ca6 50%,
+            #8b356d
         );
 
+    border: 2px solid #ffacd7;
+
+    box-shadow:
+        15px 18px 0 #35152f,
+        0 0 25px rgba(255, 76, 178, 0.5),
+        0 0 70px rgba(255, 38, 160, 0.25);
+
+    transform:
+        rotate(-2deg);
+
+    animation:
+        bookFloat 3s ease-in-out infinite;
 }
 
+.closed-book::before {
 
-/* =========================
-   หน้าเว็บ
-========================= */
-
-.page {
-
-    width: 100%;
-    height: 100vh;
-
-    display: none;
-
-    justify-content: center;
-    align-items: center;
+    content: "";
 
     position: absolute;
 
-    top: 0;
-    left: 0;
+    left: 18px;
 
+    top: 15px;
+
+    bottom: 15px;
+
+    width: 6px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.closed-book::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px solid rgba(255, 230, 244, 0.6);
+
+    border-radius: 8px;
+}
+
+@keyframes bookFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(1deg);
+    }
+}
+
+.book-decoration {
+
+    font-size: 90px;
+
+    color: #fff0f8;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 25px #ff72bd;
+}
+
+.book-title {
+
+    margin-top: 20px;
+
+    color: white;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 28px;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px #ff65b9;
+}
+
+.book-date {
+
+    margin-top: 12px;
+
+    color: #ffe0f0;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    letter-spacing: 5px;
 }
 
 
-.page.active {
+/* =====================================
+   BUTTON
+===================================== */
+
+.main-button {
+
+    padding: 12px 28px;
+
+    border: 1px solid #ff8bcb;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 80, 175, 0.12);
+
+    color: #ffb7dd;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px rgba(255, 80, 175, 0.4);
+
+    transition: 0.3s;
+}
+
+.main-button:hover {
+
+    background:
+        rgba(255, 80, 175, 0.25);
+
+    box-shadow:
+        0 0 20px #ff55b5,
+        0 0 40px rgba(255, 40, 160, 0.4);
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================
+   NOTEBOOK
+===================================== */
+
+#notebookPage {
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #29112f,
+            #100817 55%,
+            #050309 100%
+        );
+}
+
+.notebook-area {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 90vw;
+
+    max-width: 900px;
 
     display: flex;
 
-    animation:
-        fadeIn 0.8s ease;
+    flex-direction: column;
 
+    align-items: center;
 }
 
 
-@keyframes fadeIn {
+/* =====================================
+   NOTEBOOK
+===================================== */
+
+.notebook {
+
+    width: min(780px, 88vw);
+
+    height: min(500px, 62vh);
+
+    display: flex;
+
+    perspective: 1800px;
+
+    filter:
+        drop-shadow(
+            0 20px 40px
+            rgba(0, 0, 0, 0.7)
+        );
+
+    opacity: 0;
+
+    transform:
+        scale(0.7)
+        rotateX(15deg);
+
+    transition:
+        transform 1s ease,
+        opacity 1s ease;
+}
+
+.notebook.open {
+
+    opacity: 1;
+
+    transform:
+        scale(1)
+        rotateX(0);
+}
+
+.paper {
+
+    width: 50%;
+
+    height: 100%;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff5f9,
+            #ffe0ed
+        );
+
+    border: 1px solid #f3a6c7;
+
+    color: #63364f;
+
+    box-shadow:
+        inset 0 0 25px
+        rgba(255, 100, 170, 0.12);
+}
+
+.left-paper {
+
+    border-radius:
+        15px 0 0 15px;
+
+    border-right:
+        2px solid #df8db1;
+}
+
+.right-paper {
+
+    border-radius:
+        0 15px 15px 0;
+}
+
+.paper-content {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    font-size:
+        clamp(15px, 2vw, 21px);
+
+    line-height: 1.8;
+}
+
+.paper-content h2 {
+
+    margin-bottom: 15px;
+
+    color: #a94c7d;
+}
+
+.paper-content p {
+
+    max-width: 90%;
+}
+
+
+/* =====================================
+   NOTEBOOK BUTTONS
+===================================== */
+
+.buttons {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.buttons button {
+
+    padding: 10px 18px;
+
+    border: 1px solid #ff8dcc;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 90, 175, 0.08);
+
+    color: #ffb4dc;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 0 10px
+        rgba(255, 80, 170, 0.2);
+}
+
+.buttons button:hover {
+
+    background:
+        rgba(255, 90, 175, 0.2);
+
+    box-shadow:
+        0 0 20px
+        rgba(255, 80, 170, 0.6);
+
+    transform:
+        translateY(-2px);
+}
+
+#closeBtn {
+
+    display: none;
+}
+
+
+/* =====================================
+   FLOWER MESSAGE
+===================================== */
+
+#flowerMessagePage {
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #29112f,
+            #08040d 75%
+        );
+}
+
+#flowerMessage {
+
+    position: relative;
+
+    z-index: 20;
+
+    color: #ff91d1;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(30px, 6vw, 75px);
+
+    font-weight: 900;
+
+    text-align: center;
+
+    letter-spacing: 5px;
+
+    padding: 25px;
+
+    text-shadow:
+        0 0 4px #ffd9ee,
+        0 0 10px #ff9dd5,
+        0 0 20px #ff5bb7,
+        0 0 40px #ff239f,
+        0 0 70px #df007c;
+
+    animation:
+        messageAppear 0.8s ease;
+}
+
+@keyframes messageAppear {
 
     from {
 
         opacity: 0;
 
         transform:
-            scale(0.96);
-
+            scale(0.8);
     }
 
     to {
@@ -80,514 +855,212 @@ body {
 
         transform:
             scale(1);
-
     }
-
 }
 
 
-/* =========================
-   Card
-========================= */
+/* =====================================
+   FLOWER PAGE
+===================================== */
 
-.card {
+#flowerPage {
 
-    width: 420px;
+    align-items: center;
 
-    padding:
-        55px 30px;
-
-    text-align: center;
+    justify-content: center;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.85
+        radial-gradient(
+            circle at center,
+            #2d1238,
+            #09040e 70%,
+            #030207
         );
-
-    backdrop-filter:
-        blur(15px);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 20px 60px
-        rgba(
-            0,
-            0,
-            0,
-            0.15
-        );
-
 }
 
+.flower-container {
 
-.card h1 {
+    position: relative;
 
-    color:
-        #e63971;
+    z-index: 20;
 
-    font-size:
-        42px;
+    display: flex;
 
-    margin-bottom:
-        15px;
+    flex-direction: column;
 
-}
+    align-items: center;
 
-
-.card h2 {
-
-    color:
-        #555;
-
-    margin-bottom:
-        30px;
-
-}
-
-
-.card p {
-
-    color:
-        #666;
-
-    font-size:
-        18px;
-
-    margin-bottom:
-        30px;
-
-}
-
-
-/* =========================
-   รูปในหัวใจ
-========================= */
-
-.heart {
-
-    width:
-        130px;
-
-    height:
-        130px;
-
-    margin:
-        0 auto 20px;
-
-    border-radius:
-        50%;
-
-    overflow:
-        hidden;
+    justify-content: center;
 
     animation:
-        heartbeat 1.2s infinite;
-
+        flowerFloat 4s ease-in-out infinite;
 }
 
-
-.heart img {
+#flowerCanvas {
 
     width:
-        100%;
+        min(450px, 75vw);
 
     height:
-        100%;
+        min(550px, 75vh);
 
-    object-fit:
-        cover;
+    image-rendering:
+        pixelated;
 
-    display:
-        block;
+    image-rendering:
+        crisp-edges;
 
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255, 120, 190, 0.35)
+        );
 }
 
+.flower-glow {
 
-@keyframes heartbeat {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 100, 190, 0.22),
+            transparent 70%
+        );
+
+    filter: blur(15px);
+
+    animation:
+        glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
 
     0%,
     100% {
+        opacity: 0.5;
 
         transform:
-            scale(1);
-
+            scale(0.9);
     }
 
     50% {
+        opacity: 0.9;
 
         transform:
-            scale(1.15);
+            scale(1.1);
+    }
+}
 
+@keyframes flowerFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-1deg);
     }
 
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(1deg);
+    }
+}
+
+.flower-caption {
+
+    margin-top: -15px;
+
+    color: #ff9bd5;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 24px;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px #ff61bc,
+        0 0 25px #ff269f;
 }
 
 
-/* =========================
-   ปุ่ม OPEN
-========================= */
-
-.openBtn {
-
-    border:
-        none;
-
-    padding:
-        15px 55px;
-
-    border-radius:
-        50px;
-
-    background:
-        #ff4f87;
-
-    color:
-        white;
-
-    font-size:
-        20px;
-
-    cursor:
-        pointer;
-
-    transition:
-        0.3s;
-
-}
-
-
-.openBtn:hover {
-
-    transform:
-        scale(1.1);
-
-    background:
-        #e63971;
-
-}
-
-
-/* =========================
-   VIDEO
-========================= */
-
-.videoContainer {
-
-    width:
-        100vw;
-
-    height:
-        100vh;
-
-    background:
-        black;
-
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-}
-
-
-.videoContainer video {
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    object-fit:
-        contain;
-
-}
-
-
-/* =========================
-   YES / NO
-========================= */
-
-.buttons {
-
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    gap:
-        20px;
-
-}
-
-
-.yesBtn,
-.noBtn,
-.backBtn {
-
-    border:
-        none;
-
-    padding:
-        14px 35px;
-
-    border-radius:
-        50px;
-
-    font-size:
-        18px;
-
-    cursor:
-        pointer;
-
-    transition:
-        0.25s;
-
-}
-
-
-.yesBtn {
-
-    background:
-        #ff4f87;
-
-    color:
-        white;
-
-}
-
-
-.noBtn {
-
-    background:
-        #eeeeee;
-
-    color:
-        #555;
-
-}
-
-
-.backBtn {
-
-    background:
-        #ff4f87;
-
-    color:
-        white;
-
-}
-
-
-.yesBtn:hover,
-.noBtn:hover,
-.backBtn:hover {
-
-    transform:
-        scale(1.1);
-
-}
-
-
-/* =========================
-   รูปคำตอบ YES / NO
-========================= */
-
-.resultCard {
-
-    width:
-        min(
-            600px,
-            90vw
-        );
-
-    max-height:
-        90vh;
-
-    padding:
-        20px;
-
-    text-align:
-        center;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.9
-        );
-
-    border-radius:
-        30px;
-
-    box-shadow:
-        0 20px 60px
-        rgba(
-            0,
-            0,
-            0,
-            0.2
-        );
-
-    animation:
-        fadeIn 0.8s ease;
-
-}
-
-
-.resultCard img {
-
-    width:
-        100%;
-
-    max-height:
-        75vh;
-
-    object-fit:
-        contain;
-
-    display:
-        block;
-
-    margin:
-        auto;
-
-    border-radius:
-        20px;
-
-}
-
-
-/* =========================
-   หน้าสุดท้าย
-========================= */
-
-.finalCard {
-
-    width:
-        600px;
-
-    padding:
-        70px 30px;
-
-    text-align:
-        center;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.9
-        );
-
-    border-radius:
-        35px;
-
-    box-shadow:
-        0 20px 60px
-        rgba(
-            0,
-            0,
-            0,
-            0.2
-        );
-
-}
-
-
-.bigHeart {
-
-    font-size:
-        120px;
-
-    animation:
-        heartbeat 1s infinite;
-
-}
-
-
-.finalCard h1 {
-
-    margin-top:
-        20px;
-
-    font-size:
-        50px;
-
-    color:
-        #e63971;
-
-}
-
-
-/* =========================
-   มือถือ
-========================= */
+/* =====================================
+   MOBILE
+===================================== */
 
 @media (max-width: 600px) {
 
-    .card {
+    .music-button {
 
-        width:
-            90%;
+        top: 12px;
+        right: 12px;
 
+        padding: 7px 10px;
+
+        font-size: 10px;
     }
 
+    .digital-text {
 
-    .heart {
+        font-size: 55px;
 
-        width:
-            110px;
+        letter-spacing: 4px;
 
-        height:
-            110px;
-
+        min-height: 120px;
     }
 
+    .big-heart {
 
-    .finalCard {
-
-        width:
-            90%;
-
+        font-size: 130px;
     }
 
+    .closed-book {
 
-    .finalCard h1 {
-
-        font-size:
-            35px;
-
+        height: 420px;
     }
 
+    .notebook {
 
-    .resultCard {
-
-        width:
-            92%;
-
-        padding:
-            10px;
-
+        height: 430px;
     }
 
+    .paper {
 
-    .resultCard img {
-
-        max-height:
-            75vh;
-
+        padding: 18px;
     }
 
+    .buttons {
+
+        margin-top: 20px;
+    }
+
+    .buttons button {
+
+        padding: 8px 12px;
+
+        font-size: 12px;
+    }
+
+    #flowerMessage {
+
+        font-size: 28px;
+
+        letter-spacing: 2px;
+    }
+
+    #flowerCanvas {
+
+        width: 350px;
+
+        height: 430px;
+    }
 }

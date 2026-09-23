@@ -1,200 +1,128 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>For My little Doggg</title>
+    <title>WebByWanmoyyAgain</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
+    <!-- =====================================
+         MUSIC
+    ====================================== -->
 
-    <!-- =========================
-         หน้าแรก
-    ========================== -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-    <section id="openPage" class="page active">
-
-        <div class="card">
-
-            <div class="heart">
-                <img src="heart.jpg">
-            </div>
-
-            <h1>Dear Doggg</h1>
-
-            <p>
-                do u want to know that?????
-            </p>
-
-            <button
-                class="openBtn"
-                onclick="startVideo()"
-            >
-                OPEN
-            </button>
-
-        </div>
-
-    </section>
+    <button id="musicButton" class="music-button">
+        ♫ <span id="musicText">MUSIC</span>
+    </button>
 
 
+    <!-- =====================================
+         INTRO
+    ====================================== -->
 
-    <!-- =========================
-         หน้าวิดีโอ
-    ========================== -->
+    <section id="intro" class="page active">
 
-    <section id="videoPage" class="page">
+        <div id="starField" class="star-field"></div>
 
-        <div class="videoContainer">
+        <div class="intro-content">
 
-            <video
-                id="loveVideo"
-                playsinline
-            >
-
-                <source
-                    src="love.mp4"
-                    type="video/mp4"
-                >
-
-                เบราว์เซอร์ของคุณไม่รองรับวิดีโอ
-
-            </video>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         หลังวิดีโอจบ
-    ========================== -->
-
-    <section id="questionPage" class="page">
-
-        <div class="card">
-
-            <div class="heart">
-                <img src="lover.jpg">
-            </div>
-
-            <h1>
-                ถามไรหน่อยได้มั้ยยย
-            </h1>
-
-            <h2>
-                พร้อมรู้รึป่าววว
-            </h2>
-
-
-            <div class="buttons">
-
-                <button
-                    class="yesBtn"
-                    onclick="yes()"
-                >
-                    YES
-                </button>
-
-
-                <button
-                    class="noBtn"
-                    onclick="no()"
-                >
-                    NO
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         หน้า Are u sure?
-    ========================== -->
-
-    <section id="surePage" class="page">
-
-        <div class="card">
-
-            <div class="heart">
-                <img src="sure.jpg">
-            </div>
-
-            <h1>
-                Are u sure?
-            </h1>
-
-            <p>
-                จริงดิ่ ตั้งใจเขียนโค้ดมากนะหมาา
-            </p>
-
-
-            <button
-                class="backBtn"
-                onclick="back()"
-            >
-                BACK
-            </button>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         หน้า เป็นแฟนกันไหม?
-    ========================== -->
-
-    <section id="proposalPage" class="page">
-
-        <div class="card">
-
-            <div class="heart">
+            <div id="introText" class="digital-text">
                 
             </div>
 
-            <h1>
-                Pen Fan Gun Mai?????
-            </h1>
+            <div id="heart" class="big-heart">
+                ♡
+            </div>
 
-            <p>
-                👉👈
-            </p>
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         NOTEBOOK COVER
+    ====================================== -->
+
+    <section id="coverPage" class="page">
+
+        <div id="coverStars" class="star-field"></div>
+
+        <div class="cover-container">
+
+            <div class="closed-book">
+
+                <div class="book-decoration">
+                    ♡
+                </div>
+
+                <div class="book-title">
+                    FOR Ticha
+                </div>
+
+                <div class="book-date">
+                    กดเบิ่งดูแนหล่าา
+                </div>
+
+            </div>
+
+            <button id="openBookBtn" class="main-button">
+                OPEN 
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         NOTEBOOK
+    ====================================== -->
+
+    <section id="notebookPage" class="page">
+
+        <div id="notebookStars" class="star-field"></div>
+
+        <div class="notebook-area">
+
+            <div id="notebook" class="notebook">
+
+                <div class="paper left-paper">
+
+                    <div id="leftContent" class="paper-content"></div>
+
+                </div>
+
+
+                <div class="paper right-paper">
+
+                    <div id="rightContent" class="paper-content"></div>
+
+                </div>
+
+            </div>
 
 
             <div class="buttons">
 
-                <button
-                    class="yesBtn"
-                    onclick="answerYes()"
-                >
-                    YES
+                <button id="prevBtn">
+                    ← ก่อนหน้า
                 </button>
 
+                <button id="nextBtn">
+                    หน้าถัดไป →
+                </button>
 
-                <button
-                    class="noBtn"
-                    onclick="answerNo()"
-                >
-                    NO
+                <button id="closeBtn">
+                    ปิดสมุด ♡
                 </button>
 
             </div>
@@ -204,47 +132,48 @@
     </section>
 
 
+    <!-- =====================================
+         FLOWER MESSAGE
+    ====================================== -->
 
-    <!-- =========================
-         รูปเมื่อกด YES
-    ========================== -->
+    <section id="flowerMessagePage" class="page">
 
-    <section id="answerYesPage" class="page">
+        <div id="messageStars" class="star-field"></div>
 
-        <div class="resultCard">
-
-            <img
-                src="yes.jpg"
-            >
-
+        <div id="flowerMessage">
+            THE LAST
+            IS
         </div>
 
     </section>
 
 
+    <!-- =====================================
+         PIXEL FLOWER
+    ====================================== -->
 
-    <!-- =========================
-         รูปเมื่อกด NO
-    ========================== -->
+    <section id="flowerPage" class="page">
 
-    <section id="answerNoPage" class="page">
+        <div id="flowerStars" class="star-field"></div>
 
-    <div class="resultCard">
+        <div class="flower-container">
 
-        <img src="no.jpg">
+            <div class="flower-glow"></div>
 
-        <br><br>
+            <canvas
+                id="flowerCanvas"
+                width="180"
+                height="220">
+            </canvas>
 
-        <button
-            class="backBtn"
-            onclick="backToProposal()"
-        >
-            BACK
-        </button>
+            <div class="flower-caption">
+                FOR TICHA NAA <3
+                P luv ticha t suddd
+            </div>
 
-    </div>
+        </div>
 
-</section>
+    </section>
 
 
     <script src="script.js"></script>
